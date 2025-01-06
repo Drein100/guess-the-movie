@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Film Tahmin Oyunu</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Site Başlığı -->
+      <header class="site-header">
+        <h1 class="site-title">Film Tahmin Oyunu</h1>
+        <nav class="nav-bar">
+          <button id="loginBtn">Giriş</button>
+          <button id="logoutBtn" style="display: none;">Çıkış Yap</button>
+        </nav>
+      </header>
+
+      <!-- Giriş/Kayıt Ekranı -->
+      <section id="authSection" class="auth-section hidden">
+        <div class="auth-container">
+          <h2>Kayıt / Giriş</h2>
+          <input type="text" id="userNameReg" placeholder="Kullanıcı Adı (Kayıt)" />
+          <input type="email" id="emailReg" placeholder="E-posta (Kayıt)" />
+          <input type="password" id="passwordReg" placeholder="Şifre (Kayıt)" />
+          <button id="registerBtn">Kayıt Ol</button>
+
+          <hr style="margin:1rem 0;width:100%;max-width:300px;">
+
+          <input type="text" id="userNameLogin" placeholder="Kullanıcı Adı (Giriş)" />
+          <input type="password" id="passwordLogin" placeholder="Şifre (Giriş)" />
+          <button id="loginUserNameBtn">Giriş Yap</button>
+
+          <p id="authFeedback"></p>
+        </div>
+      </section>
+
+      <!-- Mod Seçim Ekranı -->
+      <section id="modeSection" class="mode-section hidden">
+        <h2>Oyun Modunu Seç</h2>
+        <div class="mode-buttons">
+          <button id="modePopularBtn">Popüler Mod</button>
+          <button id="modeIntermediateBtn">Orta Mod</button>
+          <button id="modeRandomBtn">Sinefil Mod</button>
+        </div>
+      </section>
+
+      <!-- Oyun Ekranı -->
+      <section id="gameSection" class="game-section hidden">
+        <div class="poster-wrapper">
+          <img id="poster" src="" alt="Film Posteri" class="poster-img" />
+        </div>
+        <div id="movieDetails"></div>
+
+        <div class="guess-container">
+          <input
+            type="text"
+            id="guessInput"
+            placeholder="Filmin adını tahmin et..."
+          />
+          <button id="guessBtn">Tahmin Et</button>
+        </div>
+
+        <p id="feedback"></p>
+        <p id="attempts"></p>
+        <p id="score"></p>
+      </section>
+
+      <!-- Liderlik Tablosu -->
+      <section id="leaderboardSection" class="leaderboard-section">
+        <h2>Liderlik Tablosu</h2>
+        <ol id="leaderboardList"></ol>
+      </section>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore-compat.js"></script>
+
+    <!-- Ana Script -->
+    <script src="app.js"></script>
+  </body>
+</html>
